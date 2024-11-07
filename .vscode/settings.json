@@ -1,0 +1,20 @@
+{
+  "python.REPL.enableREPLSmartSend": false,
+  "cSpell.words": [
+    "Aldous",
+    "Alexandre",
+    "Bram",
+    "Brontë",
+    "Chinua",
+    "Cristo",
+    "Fyodor",
+    "García",
+    "Gustave",
+    "Márquez",
+    "Middlemarch",
+    "Misérables",
+    "Moby",
+    "Wuthering"
+  ],
+  "editor.formatOnSave": true
+}
