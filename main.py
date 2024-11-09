@@ -87,20 +87,26 @@ class Book(Library):
         for book in self.books:
             if book["title"].lower() == title.lower():
                 if book["status"] == "available":
-                    book["status"] = "borrowed" # Updating status
+                    book["status"] = "borrowed"  # Updating status
                     print(f'You have successfully borrowed "{title}".')
-                print(f'Sorry, "{title}" is currently borrowed.')
-        print(f'Book "{title}" not found in the library.')
-    
+                    return  # Exit function after borrowing the book
+                else:
+                    print(f'Sorry, "{title}" is currently borrowed.')
+                    return  # Exit function if the book is not available
+        print(f'Book "{title}" not found in the library.')  # Only prints if the book isn't found
 
     def return_book(self, title):
         for book in self.books:
             if book["title"].lower() == title.lower():
                 if book["status"] == "borrowed":
-                    book["status"] = "available" # Updating status
+                    book["status"] = "available"  # Updating status
                     print(f'You have successfully returned "{title}".')
-                print(f'Sorry, "{title}" is not currently borrowed.')
-        print(f'Book "{title}" not found in the library.')
+                    return  # Exit function after returning the book
+                else:
+                    print(f'Sorry, "{title}" is not currently borrowed.')
+                    return  # Exit function if the book is not borrowed
+        print(f'Book "{title}" not found in the library.')  # Only prints if the book isn't found
+
                     
     def search_books(self, search_term):
         results = []
@@ -210,9 +216,8 @@ what do you want to do:
 10. count available book(s)
 11. book details
 12. exit
-4. exit
         ''')
-        choice = int(input("Enter number (1-4): "))
+        choice = int(input("Enter number (1-12): "))
 
         if choice == 1:
            print(account.list_all_books())
